@@ -88,7 +88,7 @@
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #0a1f09;
+      color: #000000;
       margin-bottom: 1rem;
     }
 
@@ -179,45 +179,31 @@
     }
 
     /* ── ABOUT ── */
-    #about { background: var(--cream); }
+    #about { background: #1a2d45; color: var(--cream); }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
+    #about .section-label { color: var(--stone); }
+    #about .section-title { color: var(--snow, #e5eaf0); }
 
-    .about-grid p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .stat-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
-      background: #dde2ea;
-      border-radius: 4px;
-      border-left: 4px solid var(--moss);
-    }
-
-    .stat-num {
+    .about-lead {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--moss);
-      min-width: 60px;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.8;
+      color: #c8d0da;
+      border-left: 4px solid var(--alpine);
+      padding-left: 1.5rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
     }
 
-    .stat-label { font-size: 0.9rem; color: var(--muted); }
+    .about-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #a8b4c0;
+      max-width: 700px;
+      padding-left: 1.5rem;
+      border-left: 4px solid transparent;
+    }
 
     /* ── PROJECTS ── */
     #projects { background: #dde2ea; }
@@ -330,6 +316,23 @@
       margin-bottom: 1.5rem;
     }
 
+    /* ── LANGUAGE DOT ── */
+    .lang-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      background: var(--stone);
+    }
+
+    .card-loading {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 1rem 0;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav ul { gap: 1rem; }
@@ -352,7 +355,7 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <p class="hero-tag">Dylan Bozada &mdash; Data &amp; the Outdoors</p>
-    <h1>Exploring the world<br/><span>one river at a time.</span></h1>
+    <h1>Exploring the world<br/><span>one adventure at a time.</span></h1>
     <p class="hero-sub">Data Engineer, outdoor enthusiast, and lifelong learner based in Florida.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -385,36 +388,12 @@
       <p class="section-label">Background</p>
       <h2 class="section-title">About Me</h2>
       <div class="divider"></div>
-      <div class="about-grid">
-        <div>
-          <p>
-            I'm Dylan Bozada — a data enthusiast who spends his free time on Missouri's rivers,
-            chasing smallmouth bass and ticking off miles on the water.
-          </p>
-          <p>
-            I use Python and data analysis to make sense of the world around me,
-            whether that's tracking a summer paddling challenge or exploring a new dataset.
-            This site is where I share those projects.
-          </p>
-          <p>
-            When I'm not writing code, you'll find me in a canoe.
-          </p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-row">
-            <span class="stat-num">100+</span>
-            <span class="stat-label">Miles paddled on Missouri rivers in Summer 2022</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-num">7</span>
-            <span class="stat-label">Rivers explored: Big, Black, Current, Missouri, Niangua, St. Francis, Huzzah</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-num">5.5</span>
-            <span class="stat-label">lb Smallmouth — lunker board record (Big River, July 2022)</span>
-          </div>
-        </div>
-      </div>
+      <p class="about-lead">
+        I'm Dylan Bozada — a data enthusiast who loves spending time outside. When I'm not working with data, I'm usually on a trail or in a canoe somewhere. I've always believed the best way to recharge is to get off the screen entirely.
+      </p>
+      <p class="about-body">
+        I work primarily in the data engineering space, building and maintaining pipelines that turn raw data into something useful. My toolkit includes Python, SQL, PySpark, and Airflow for orchestration, with hands-on experience in Databricks and Azure for cloud-scale processing. I'm also comfortable working with Docker to keep environments clean and deployments consistent. Recently I've been exploring AI tooling as well, with some experience in LangGraph and Arize Ax.
+      </p>
     </div>
   </section>
 
@@ -424,19 +403,18 @@
       <p class="section-label">Work</p>
       <h2 class="section-title">Projects</h2>
       <div class="divider"></div>
-      <div class="project-grid">
+      <div class="project-grid" id="project-grid">
 
-        <a class="project-card" href="hunnoMiles.html">
-          <div class="card-banner water"></div>
+        <a class="project-card" href="https://github.com/dcbozada/spotifyProj" target="_blank" rel="noopener">
+          <div class="card-banner" style="background:#1DB954"></div>
           <div class="card-body">
-            <p class="card-tag">Python &middot; Pandas &middot; Matplotlib</p>
-            <h3 class="card-title">Hunno Miles &mdash; Summer '22</h3>
-            <p class="card-desc">
-              A data analysis of my goal to paddle 100 miles across Missouri's river system in a single summer.
-              Tracks GPS coordinates, vessel types, rainfall data, and fishing highlights for each float.
+            <p class="card-tag">
+              <span class="lang-dot" style="background:#3572A5"></span>Python &middot; SQL &middot; API
             </p>
+            <h3 class="card-title">spotifyProj</h3>
+            <p class="card-desc">An end-to-end data pipeline that extracts Spotify user data via the API, transforms and stores it in a database, and can be queried to create analytics.</p>
           </div>
-          <div class="card-footer">View Project &rarr;</div>
+          <div class="card-footer">View on GitHub &rarr;</div>
         </a>
 
         <a class="project-card" href="https://github.com/dcbozada" target="_blank" rel="noopener">
@@ -444,9 +422,7 @@
           <div class="card-body">
             <p class="card-tag">GitHub</p>
             <h3 class="card-title">More on GitHub</h3>
-            <p class="card-desc">
-              Browse all of my repositories, experiments, and in-progress work on GitHub.
-            </p>
+            <p class="card-desc">Browse all of my repositories, experiments, and in-progress work on GitHub.</p>
           </div>
           <div class="card-footer">github.com/dcbozada &rarr;</div>
         </a>
@@ -485,6 +461,41 @@
               24 12.297c0-6.627-5.373-12-12-12"/>
           </svg>
           GitHub
+        </a>
+
+        <a class="social-link" href="https://www.linkedin.com/in/dylan-bozada-470b51149/" target="_blank" rel="noopener">
+          <!-- LinkedIn icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853
+              0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9
+              1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337
+              7.433a1.98 1.98 0 01-1.98-1.98 1.98 1.98 0 011.98-1.98 1.98 1.98
+              0 011.98 1.98 1.98 1.98 0 01-1.98 1.98zm1.957 13.019H3.38V9h3.914v11.452zM22.225
+              0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771
+              24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+
+        <a class="social-link" href="https://www.instagram.com/dylanbozada/" target="_blank" rel="noopener">
+          <!-- Instagram icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691
+              4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069
+              4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07
+              -3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058
+              -1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227
+              1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741
+              0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741
+              0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333
+              23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2
+              6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948
+              0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014
+              15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0
+              000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44
+              0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          Instagram
         </a>
 
         <a class="social-link" href="mailto:dcbozada@gmail.com">
