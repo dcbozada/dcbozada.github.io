@@ -9,14 +9,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bark:    #3b2f1e;
-      --moss:    #4a6741;
-      --sage:    #7a9e76;
-      --stone:   #c2b49a;
-      --cream:   #f5f0e8;
-      --water:   #5b8fa8;
-      --text:    #2c2416;
-      --muted:   #6b5d4f;
+      --bark:    #2a2520;   /* dark rocky peak */
+      --moss:    #2a5c25;   /* pine forest green */
+      --sage:    #5b8c58;   /* mid forest green */
+      --stone:   #8c7e6e;   /* warm foreground rock */
+      --cream:   #f0ede8;   /* warm off-white */
+      --water:   #3a8a88;   /* alpine lake teal */
+      --sky:     #2466b0;   /* cobalt sky */
+      --text:    #1c1915;
+      --muted:   #56504a;
     }
 
     html { scroll-behavior: smooth; }
@@ -37,7 +38,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2.5rem;
-      background: rgba(245, 240, 232, 0.92);
+      background: rgba(240, 237, 232, 0.92);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--stone);
     }
@@ -78,8 +79,8 @@
       text-align: center;
       padding: 6rem 2rem 4rem;
       background:
-        linear-gradient(to bottom, rgba(245,240,232,0.15) 0%, rgba(245,240,232,0.85) 70%, var(--cream) 100%),
-        url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1600&auto=format&fit=crop&q=80") center/cover no-repeat;
+        linear-gradient(to bottom, rgba(36,102,176,0.15) 0%, rgba(240,237,232,0.78) 65%, var(--cream) 100%),
+        url("images/cover_photo.jpg") center/cover no-repeat;
     }
 
     .hero-tag {
@@ -87,7 +88,7 @@
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--moss);
+      color: #0a1f09;
       margin-bottom: 1rem;
     }
 
@@ -165,7 +166,7 @@
       font-size: 1.05rem;
       font-style: italic;
       line-height: 1.8;
-      color: #d9cfc3;
+      color: #c8d0da;
       max-width: 700px;
     }
 
@@ -204,7 +205,7 @@
       align-items: center;
       gap: 1rem;
       padding: 1rem 1.25rem;
-      background: #ede8df;
+      background: #dde2ea;
       border-radius: 4px;
       border-left: 4px solid var(--moss);
     }
@@ -219,7 +220,7 @@
     .stat-label { font-size: 0.9rem; color: var(--muted); }
 
     /* ── PROJECTS ── */
-    #projects { background: #ede8df; }
+    #projects { background: #dde2ea; }
 
     .project-grid {
       display: grid;
@@ -233,7 +234,7 @@
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      border: 1px solid #d9d0c4;
+      border: 1px solid #c4ccd6;
       transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
@@ -307,7 +308,7 @@
     .social-link:hover {
       border-color: var(--moss);
       color: var(--moss);
-      background: rgba(74,103,65,0.06);
+      background: rgba(42,92,37,0.06);
     }
 
     .social-link svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
@@ -352,7 +353,7 @@
   <section class="hero" id="hero">
     <p class="hero-tag">Dylan Bozada &mdash; Data &amp; the Outdoors</p>
     <h1>Exploring the world<br/><span>one river at a time.</span></h1>
-    <p class="hero-sub">Data analyst, paddler, and lifelong learner based in Missouri.</p>
+    <p class="hero-sub">Data Engineer, outdoor enthusiast, and lifelong learner based in Florida.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#projects">View Projects</a>
       <a class="btn btn-outline" href="https://github.com/dcbozada" target="_blank" rel="noopener">GitHub</a>
